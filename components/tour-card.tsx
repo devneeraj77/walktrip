@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Button } from "@heroui/react";
+import { Button, Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 
@@ -24,11 +24,11 @@ export function TourCard({
   return (
     <Card className="h-full">
       <CardHeader className="p-0">
-        <Image src={image} alt={title} className="w-full h-48 object-cover" />
+        <Image alt={title} className="h-48 w-full object-cover" src={image} />
       </CardHeader>
       <CardBody>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-default-600 mb-4">{description}</p>
+        <h3 className="mb-2 text-xl font-semibold">{title}</h3>
+        <p className="mb-4 text-default-600">{description}</p>
         <div className="flex items-center gap-4 text-default-600">
           <div className="flex items-center gap-1">
             <Icon icon="lucide:clock" />
@@ -42,10 +42,10 @@ export function TourCard({
       </CardBody>
       <CardFooter>
         <Button
-          color="primary"
-          variant="flat"
           fullWidth
+          color="primary"
           endContent={<Icon icon="lucide:arrow-right" />}
+          variant="flat"
         >
           Book Now
         </Button>

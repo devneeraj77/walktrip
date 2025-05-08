@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Button } from "@heroui/react";
-import { Icon } from "@iconify/react";
 
 export function HeroSection() {
   return (
@@ -12,7 +11,7 @@ export function HeroSection() {
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage: "url('https://picsum.photos/1920/1080')",
-          filter: "brightness(0.7)"
+          filter: "brightness(0.7)",
         }}
       />
 
@@ -22,17 +21,14 @@ export function HeroSection() {
           Discover Delhi&apos;s Hidden Gems
         </h1>
         <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-          Join our expert local guides for immersive walking tours through Delhi&apos;s rich history, vibrant culture, and authentic experiences.
+          Join our expert local guides for immersive walking tours through
+          Delhi&apos;s rich history, vibrant culture, and authentic experiences.
         </p>
         <div className="flex flex-wrap gap-4">
-          <Button color="default"  size="lg" variant="flat">
+          <Button color="default" size="lg" variant="flat">
             Explore Tours
           </Button>
-          <Button
-            size="lg"
-            variant="light"
-            className="text-white border-white"
-          >
+          <Button size="lg" variant="light" className="text-white border-white">
             Learn More
           </Button>
         </div>

@@ -13,7 +13,6 @@ import { Icon } from "@iconify/react";
 import { BookingModal } from "./booking-modal";
 import { Guide } from "@/types";
 
-
 export function GuideCard({
   id,
   name,
@@ -25,6 +24,10 @@ export function GuideCard({
   hourlyRate,
   rating = 0, // Default to 0 if no rating is provided
   reviewCount = 0, // Default to 0 if no reviewCount is provided
+  title,
+  description,
+  link,
+  image,
 }: Guide) {
   const [isBookingOpen, setIsBookingOpen] = React.useState(false);
 
@@ -79,6 +82,10 @@ export function GuideCard({
           availability: {},
           rating, // Pass the rating
           reviewCount, // Pass the reviewCount
+          title,
+          description,
+          link,
+          image,
         }}
       />
     </>

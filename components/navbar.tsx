@@ -101,7 +101,7 @@ export const Navbar = () => {
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
-        Become a Guide
+            Become a Guide
           </Button>
         </NavbarItem>
       </NavbarContent>
