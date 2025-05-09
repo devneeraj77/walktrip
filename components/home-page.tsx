@@ -14,7 +14,7 @@ export default function Home({ guides }: HomeProps) {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <Spotlight />
+      {/* <Spotlight /> */}
       <section id="guides" className="py-20 ">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
