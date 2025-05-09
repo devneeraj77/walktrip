@@ -1,7 +1,9 @@
 // auth.ts
 import NextAuth from "next-auth";
 import credentials from "next-auth/providers/credentials";
+
 import redis from "./lib/redis";
+
 import { User } from "@/types";
 export const { auth, handlers } = NextAuth({
   providers: [
@@ -44,6 +46,7 @@ export const { auth, handlers } = NextAuth({
         token.id = user.id;
         // token.role = user.role; // ✅ Store role in JWT
       }
+
       return token;
     },
     async session({ session, token }) {
@@ -51,6 +54,7 @@ export const { auth, handlers } = NextAuth({
         session.user.id = token.id;
         session.user.role = token.role; // ✅ Store role in session
       }
+
       return session;
     },
   },

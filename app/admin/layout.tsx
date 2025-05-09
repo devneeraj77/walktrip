@@ -21,12 +21,12 @@ export default function AdminLayout({
     <div className="min-h-screen bg-background">
       <Navbar isBordered className="bg-background/70 backdrop-blur-sm">
         <NavbarBrand>
-          <Icon icon="lucide:map" className="text-2xl text-primary" />
+          <Icon className="text-2xl text-primary" icon="lucide:map" />
           <p className="font-bold text-inherit ml-2">Walktrip Admin</p>
         </NavbarBrand>
         <NavbarContent justify="end">
           <NavbarItem>
-            <Button color="danger" variant="flat" href="/auth/logout" as={Link}>
+            <Button as={Link} color="danger" href="/auth/logout" variant="flat">
               Logout
             </Button>
           </NavbarItem>

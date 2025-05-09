@@ -1,6 +1,7 @@
+import { NextResponse } from "next/server";
+
 import redis from "@/lib/redis";
 import { Booking, Guide, Service } from "@/types";
-import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -23,6 +24,7 @@ export async function GET() {
     return NextResponse.json(stats);
   } catch (error) {
     console.error("Error fetching admin stats:", error); // Log error to console
+
     return NextResponse.json(
       { error: "Failed to fetch admin stats" },
       { status: 500 },

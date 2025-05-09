@@ -25,6 +25,8 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import { IconBrandFacebook } from "@tabler/icons-react";
+import { Facebook } from "lucide-react";
 
 export const Navbar = () => {
   const searchInput = (
@@ -84,7 +86,9 @@ export const Navbar = () => {
             <TwitterIcon className="text-default-500" />
           </Link>
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-            <DiscordIcon className="text-default-500" />
+            <IconBrandFacebook className="text-default-500" />
+            <Facebook className="text-default-500" />
+
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />

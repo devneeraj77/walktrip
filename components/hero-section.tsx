@@ -28,7 +28,7 @@ export function HeroSection() {
           <Button color="default" size="lg" variant="flat">
             Explore Tours
           </Button>
-          <Button size="lg" variant="light" className="text-white border-white">
+          <Button className="text-white border-white" size="lg" variant="light">
             Learn More
           </Button>
         </div>

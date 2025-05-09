@@ -1,6 +1,7 @@
+import { NextResponse } from "next/server";
+
 import redis from "@/lib/redis";
 import { Guide } from "@/types";
-import { NextResponse } from "next/server";
 
 type Params = Promise<{ id: string }>;
 
@@ -16,6 +17,7 @@ export async function PUT(request: Request, segmentData: { params: Params }) {
     }
 
     const updatedAvailability = await request.json();
+
     guides[guideIndex].availability = updatedAvailability;
 
     await redis.set("guides", guides);
@@ -26,6 +28,7 @@ export async function PUT(request: Request, segmentData: { params: Params }) {
     });
   } catch (error) {
     console.error("Error updating guide availability:", error); // Prevent ESLint error
+
     return NextResponse.json(
       { error: "Failed to update availability" },
       { status: 500 },

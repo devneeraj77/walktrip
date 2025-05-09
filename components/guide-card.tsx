@@ -10,7 +10,9 @@ import {
   Button,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+
 import { BookingModal } from "./booking-modal";
+
 import { Guide } from "@/types";
 
 export function GuideCard({
@@ -26,7 +28,7 @@ export function GuideCard({
   reviewCount = 0, // Default to 0 if no reviewCount is provided
   title,
   description,
-  link
+  link,
 }: Guide) {
   const [isBookingOpen, setIsBookingOpen] = React.useState(false);
 
@@ -34,7 +36,7 @@ export function GuideCard({
     <>
       <Card className="text-center">
         <CardHeader className="pb-0 pt-6 px-4 flex-col items-center">
-          <Avatar src={avatar} className="w-20 h-20" size="lg" />
+          <Avatar className="w-20 h-20" size="lg" src={avatar} />
           <h4 className="font-bold text-large mt-2">{name}</h4>
           <p className="text-default-600 text-small">{specialty}</p>
         </CardHeader>
@@ -67,8 +69,6 @@ export function GuideCard({
       </Card>
 
       <BookingModal
-        isOpen={isBookingOpen}
-        onOpenChange={() => setIsBookingOpen(false)}
         guide={{
           id,
           name,
@@ -83,8 +83,10 @@ export function GuideCard({
           reviewCount, // Pass the reviewCount
           title,
           description,
-          link
+          link,
         }}
+        isOpen={isBookingOpen}
+        onOpenChange={() => setIsBookingOpen(false)}
       />
     </>
   );

@@ -32,7 +32,7 @@ export function TestimonialCard({
         </div>
         <div className="flex gap-1">
           {[...Array(rating)].map((_, i) => (
-            <Icon className="text-warning" icon="lucide:star" key={i} />
+            <Icon key={i} className="text-warning" icon="lucide:star" />
           ))}
         </div>
       </CardHeader>

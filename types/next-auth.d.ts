@@ -1,6 +1,7 @@
 // types/next-auth.d.ts
 
-import NextAuth, { DefaultSession, DefaultUser, DefaultJWT } from "next-auth";
+import { DefaultSession, DefaultJWT } from "next-auth";
+
 import { User as CustomUser } from "./User"; // Import your custom User interface
 
 declare module "next-auth" {

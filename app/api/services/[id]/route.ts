@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 import redis from "@/lib/redis";
 import { Service } from "@/types";
 type Params = Promise<{ id: string }>;
@@ -9,6 +10,7 @@ export async function PUT(request: Request, segmentData: { params: Params }) {
     const services = (await redis.get<Service[]>("services")) || [];
 
     const index = services.findIndex((s) => s.id === params.id);
+
     if (index === -1) {
       return NextResponse.json({ error: "Service not found" }, { status: 404 });
     }
@@ -19,6 +21,7 @@ export async function PUT(request: Request, segmentData: { params: Params }) {
     return NextResponse.json(services[index]);
   } catch (error) {
     console.error("Error updating service:", error); // Log the error
+
     return NextResponse.json(
       { error: "Failed to update service" },
       { status: 500 },
@@ -43,6 +46,7 @@ export async function DELETE(
     });
   } catch (error) {
     console.error("Error deleting service:", error); // Log the error
+
     return NextResponse.json(
       { error: "Failed to delete service" },
       { status: 500 },

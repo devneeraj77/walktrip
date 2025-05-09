@@ -10,9 +10,11 @@ export async function GET(request: Request, segmentData: { params: Params }) {
 
     const reviews = (await redis.get<Review[]>("reviews")) || [];
     const guideReviews = reviews.filter((r) => r.guideId === params.id);
+
     return NextResponse.json(guideReviews);
   } catch (error) {
     console.error("Error fetching guide reviews:", error); // Log the error
+
     return NextResponse.json(
       { error: "Failed to fetch guide reviews" },
       { status: 500 },

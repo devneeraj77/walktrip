@@ -4,7 +4,6 @@
 import { HeroSection } from "@/components/hero-section";
 import { GuideCard } from "@/components/guide-card";
 import { Guide } from "@/types";
-import { Spotlight } from "./ui/spotlight-new";
 
 interface HomeProps {
   guides: Guide[];
@@ -15,7 +14,7 @@ export default function Home({ guides }: HomeProps) {
     <div className="min-h-screen bg-background">
       <HeroSection />
       {/* <Spotlight /> */}
-      <section id="guides" className="py-20 ">
+      <section className="py-20 " id="guides">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
             Our Expert Local Guides
@@ -25,20 +24,20 @@ export default function Home({ guides }: HomeProps) {
               guides.map((guide) => <GuideCard key={guide.id} {...guide} />)
             ) : (
               <GuideCard
-                id="default"
-                title="No Guides Available"
-                description="We couldn’t load the guides right now. Please check back later."
-                link="#"
-                name="John Doe"
-                specialty="General Guide"
-                experience="5 years"
+                availability={{ Monday: false, Tuesday: false }}
                 avatar={"https://picsum.photos/800/600?random=1"}
                 bio="A dedicated guide who will appear once data is available."
-                languages={["English"]}
+                description="We couldn’t load the guides right now. Please check back later."
+                experience="5 years"
                 hourlyRate={0}
-                availability={{ Monday: false, Tuesday: false }}
+                id="default"
+                languages={["English"]}
+                link="#"
+                name="John Doe"
                 rating={0}
                 reviewCount={0}
+                specialty="General Guide"
+                title="No Guides Available"
               />
             )}
           </div>

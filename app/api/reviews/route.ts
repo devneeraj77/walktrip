@@ -1,11 +1,13 @@
+import { NextResponse } from "next/server";
+
 import { auth } from "@/auth";
 import redis from "@/lib/redis";
-import { NextResponse } from "next/server";
 import { Review, Guide } from "@/types";
 
 export async function POST(request: Request) {
   try {
     const session = await auth();
+
     if (!session?.user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -19,6 +21,7 @@ export async function POST(request: Request) {
     const guides = (await redis.get<Guide[]>("guides")) || [];
 
     const guideIndex = guides.findIndex((g) => g.id === reviewData.guideId);
+
     if (guideIndex === -1) {
       return NextResponse.json({ error: "Guide not found" }, { status: 404 });
     }
@@ -52,6 +55,7 @@ export async function POST(request: Request) {
     return NextResponse.json(newReview);
   } catch (error) {
     console.error("Error creating review:", error); // Logging the error to fix ESLint warning
+
     return NextResponse.json(
       { error: "Failed to create review" },
       { status: 500 },

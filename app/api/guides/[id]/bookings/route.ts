@@ -1,6 +1,7 @@
+import { NextResponse } from "next/server";
+
 import redis from "@/lib/redis";
 import { Booking } from "@/types";
-import { NextResponse } from "next/server";
 
 type Params = Promise<{ id: string }>;
 
@@ -14,6 +15,7 @@ export async function GET(request: Request, segmentData: { params: Params }) {
     return NextResponse.json(guideBookings);
   } catch (error) {
     console.error("Error fetching guide bookings:", error); // Log the error
+
     return NextResponse.json(
       { error: "Failed to fetch guide bookings" },
       { status: 500 },

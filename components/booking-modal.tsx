@@ -9,8 +9,11 @@ import {
   ModalFooter,
   Button,
   Input,
+  addToast,
 } from "@heroui/react";
+
 import { Guide } from "@/types";
+
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -32,7 +35,7 @@ export function BookingModal({
       setLoading(true);
       const booking = {
         guideId: guide.id,
-        userId: "user123", // In a real app, this would come from authentication
+        userId: "user123",
         date,
         duration,
         totalPrice: guide.hourlyRate * duration,
@@ -51,9 +54,21 @@ export function BookingModal({
         throw new Error("Failed to create booking");
       }
 
+      addToast({
+        color: "success",
+        title: "Booking Confirmed!",
+        description: `You have booked ${guide.name}`,
+       
+      });
+
       onOpenChange();
     } catch (error) {
-      console.error("Booking error:", error);
+      addToast({
+        color: "danger",
+        title: "Booking Failed",
+        description: "Something went wrong. Please try again.",
+        
+      });
     } finally {
       setLoading(false);
     }
@@ -69,18 +84,18 @@ export function BookingModal({
             </ModalHeader>
             <ModalBody>
               <Input
-                type="date"
                 label="Select Date"
+                type="date"
                 value={date}
                 onValueChange={setDate}
               />
               <Input
-                type="number"
                 label="Duration (hours)"
+                max={8}
+                min={1}
+                type="number"
                 value={duration.toString()}
                 onValueChange={(value) => setDuration(Number(value))}
-                min={1}
-                max={8}
               />
               <p className="text-default-600">
                 Total Price: ₹{guide.hourlyRate * duration}
@@ -92,8 +107,8 @@ export function BookingModal({
               </Button>
               <Button
                 color="primary"
-                onPress={handleBooking}
                 isLoading={loading}
+                onPress={handleBooking}
               >
                 Confirm Booking
               </Button>

@@ -1,5 +1,6 @@
-import redis from "@/lib/redis";
 import { NextResponse } from "next/server";
+
+import redis from "@/lib/redis";
 import { Service } from "@/types";
 import { auth } from "@/auth";
 
@@ -10,6 +11,7 @@ export async function POST(request: Request, segmentData: { params: Params }) {
     const params = await segmentData.params;
 
     const session = await auth();
+
     if (!session?.user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -39,6 +41,7 @@ export async function POST(request: Request, segmentData: { params: Params }) {
     return NextResponse.json({ service, totalLikes: service.likes });
   } catch (error) {
     console.error("Error updating service likes:", error); // ✅ Logs the error to avoid ESLint warning
+
     return NextResponse.json(
       { error: "Failed to update service likes" },
       { status: 500 },

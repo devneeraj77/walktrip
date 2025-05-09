@@ -1,9 +1,7 @@
-import redis from "@/lib/redis";
-
-import { Service } from "@/types";
-
 import { NextResponse } from "next/server";
 
+import redis from "@/lib/redis";
+import { Service } from "@/types";
 
 export async function GET() {
   try {
@@ -12,6 +10,7 @@ export async function GET() {
     return NextResponse.json(services);
   } catch (error) {
     console.error("Error fetching services:", error); // Logging error
+
     return NextResponse.json(
       { error: "Failed to fetch services" },
       { status: 500 },
@@ -40,6 +39,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error("Error creating service:", error); // Logging error
+
     return NextResponse.json(
       { error: "Failed to create service" },
       { status: 500 },
