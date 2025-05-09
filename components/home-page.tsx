@@ -28,12 +28,11 @@ export default function Home({ guides }: HomeProps) {
                 id="default"
                 title="No Guides Available"
                 description="We couldn’t load the guides right now. Please check back later."
-                image="/default-guide.jpg"
                 link="#"
                 name="John Doe"
                 specialty="General Guide"
                 experience="5 years"
-                avatar="/default-avatar.jpg"
+                avatar={"https://picsum.photos/800/600?random=1"}
                 bio="A dedicated guide who will appear once data is available."
                 languages={["English"]}
                 hourlyRate={0}

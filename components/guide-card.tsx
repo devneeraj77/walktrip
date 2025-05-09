@@ -26,8 +26,7 @@ export function GuideCard({
   reviewCount = 0, // Default to 0 if no reviewCount is provided
   title,
   description,
-  link,
-  image,
+  link
 }: Guide) {
   const [isBookingOpen, setIsBookingOpen] = React.useState(false);
 
@@ -84,8 +83,7 @@ export function GuideCard({
           reviewCount, // Pass the reviewCount
           title,
           description,
-          link,
-          image,
+          link
         }}
       />
     </>

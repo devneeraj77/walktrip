@@ -18,7 +18,6 @@ export interface Guide {
   id: string;
   title: string;
   description: string;
-  image: string;
   link: string;
   name: string;
   specialty: string;
