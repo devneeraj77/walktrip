@@ -14,8 +14,7 @@ import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { IconBrandFacebook } from "@tabler/icons-react";
-import { Facebook } from "lucide-react";
+import {  IconBrandFacebookFilled, IconBrandInstagramFilled, IconBrandTwitterFilled } from "@tabler/icons-react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -26,6 +25,7 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import { XIcon } from "lucide-react";
 
 export const Navbar = () => {
   const searchInput = (
@@ -82,15 +82,16 @@ export const Navbar = () => {
       >
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <TwitterIcon className="text-default-500" />
+            {/* <TwitterIcon className="text-default-500" /> */}
+            <IconBrandTwitterFilled className="text-default-500" />
           </Link>
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-            <IconBrandFacebook className="text-default-500" />
-            <Facebook className="text-default-500" />
+            {/* <IconBrandFacebook className="text-default-500" /> */}
+            <IconBrandFacebookFilled className="text-default-500" />
           </Link>
-          {/* <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="text-default-500" />
-          </Link> */}
+          <Link isExternal aria-label="Github" href={siteConfig.links.instagram}>
+            <IconBrandInstagramFilled className="text-default-500" />
+          </Link>
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
@@ -109,8 +110,8 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
+        <Link isExternal aria-label="Github" href={siteConfig.links.instagram}>
+          <IconBrandInstagramFilled className="text-default-500" />
         </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />

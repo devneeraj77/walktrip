@@ -1,3 +1,5 @@
+import { Instagram } from "lucide-react";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -60,7 +62,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
+    instagram: "https://instagram.com/walktrip.guide",
     twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
     discord: "https://discord.gg/9b6yyZKmH4",
