@@ -39,7 +39,7 @@ export default function Home() {
         <Link
           isExternal
           className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
+          href={siteConfig.links.instagram}
         >
           <GithubIcon size={20} />
           GitHub
