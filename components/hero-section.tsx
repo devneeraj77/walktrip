@@ -2,9 +2,12 @@
 
 import React from "react";
 import { Button } from "@heroui/react";
+import { Spotlight } from "./ui/spotlight-new";
 
 export function HeroSection() {
   return (
+    <>
+    
     <div className="relative min-h-[80vh] overflow-hidden rounded-md flex items-center">
       {/* Background Image */}
       <div
@@ -34,5 +37,7 @@ export function HeroSection() {
         </div>
       </div>
     </div>
+    <Spotlight />
+    </>
   );
 }
