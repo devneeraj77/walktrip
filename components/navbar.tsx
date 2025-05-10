@@ -14,19 +14,18 @@ import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { IconBrandFacebook } from "@tabler/icons-react";
+import { Facebook } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
   TwitterIcon,
   GithubIcon,
-  DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
   Logo,
 } from "@/components/icons";
-import { IconBrandFacebook } from "@tabler/icons-react";
-import { Facebook } from "lucide-react";
 
 export const Navbar = () => {
   const searchInput = (
@@ -88,11 +87,10 @@ export const Navbar = () => {
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
             <IconBrandFacebook className="text-default-500" />
             <Facebook className="text-default-500" />
-
           </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+          {/* <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
-          </Link>
+          </Link> */}
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>

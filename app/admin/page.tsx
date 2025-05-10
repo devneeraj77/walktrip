@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { AdminDashboardStats } from "@/components/admin/admin-dashboard-stats";
+import { AdminDashboardStats } from "@/components/admin/admin-dashboard-stats";
 import redis from "@/lib/redis";
 import { AdminStats, Booking } from "@/types";
 
@@ -29,7 +29,7 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">Dashboard</h1>
-      {/* <AdminDashboardStats stats={stats} /> */}
+      <AdminDashboardStats stats={stats} />
     </div>
   );
 }

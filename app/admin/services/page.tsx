@@ -1,7 +1,7 @@
 import React from "react";
 
-// import { ServiceList } from "@/components/admin/service-list";
-// import { AddServiceButton } from "@/components/admin/add-service-button";
+import { ServiceList } from "@/components/admin/service-list";
+import { AddServiceButton } from "@/components/admin/add-service-button";
 import { Service } from "@/types";
 import redis from "@/lib/redis";
 
@@ -16,10 +16,10 @@ export default async function ServicesPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Services</h1>
-        {/* <AddServiceButton /> */}
+        <AddServiceButton />
       </div>
-      {/*       
-      <ServiceList initialServices={services} /> */}
+
+      <ServiceList initialServices={services} />
     </div>
   );
 }

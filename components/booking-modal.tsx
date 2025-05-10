@@ -14,7 +14,6 @@ import {
 
 import { Guide } from "@/types";
 
-
 interface BookingModalProps {
   isOpen: boolean;
   onOpenChange: () => void;
@@ -58,16 +57,17 @@ export function BookingModal({
         color: "success",
         title: "Booking Confirmed!",
         description: `You have booked ${guide.name}`,
-       
       });
 
       onOpenChange();
     } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error("Booking failed:", error);
+      }
       addToast({
         color: "danger",
         title: "Booking Failed",
         description: "Something went wrong. Please try again.",
-        
       });
     } finally {
       setLoading(false);
