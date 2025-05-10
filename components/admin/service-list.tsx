@@ -13,7 +13,7 @@ import {
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
-import { Service } from "../../../types";
+import { Service } from "@/types";
 
 import { EditServiceModal } from "./edit-service-modal";
 

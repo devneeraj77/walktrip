@@ -3,8 +3,9 @@
 import React from "react";
 import { Card, CardBody } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { AdminStats } from "@/types";
 
-import { AdminStats } from "../../../types";
+
 
 interface AdminDashboardStatsProps {
   stats: AdminStats;

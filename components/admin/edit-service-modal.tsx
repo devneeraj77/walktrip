@@ -11,8 +11,7 @@ import {
   Input,
   Textarea,
 } from "@heroui/react";
-
-import { Service } from "../../../types";
+import { Service } from "@/types";
 
 interface EditServiceModalProps {
   isOpen: boolean;
