@@ -8,7 +8,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { Spotlight } from "@/components/ui/spotlight-new";
+// import { Spotlight } from "@/components/ui/spotlight-new";
 
 export const metadata: Metadata = {
   title: {
@@ -38,13 +38,14 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background overflow-x-hidden font-sans antialiased",
+          "min-h-screen bg-background overflow-hidden font-sans antialiased",
           fontSans.variable,
         )}
       >
-      <Spotlight/>
+      
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen ">
+          {/* <Spotlight/> */}
             <Navbar />
             <main className="container mx-auto max-w-7xl  border-rose-300 px-6 flex-grow">
               {children}
@@ -62,6 +63,7 @@ export default function RootLayout({
             </footer>
           </div>
         </Providers>
+        {/* <Spotlight/> */}
       </body>
     </html>
   );
