@@ -5,6 +5,9 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['picsum.photos', 'i.pravatar.cc'], // whitelist external image domains
+  },
 };
 
 module.exports = nextConfig;

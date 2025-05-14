@@ -14,18 +14,15 @@ import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import {  IconBrandFacebookFilled, IconBrandInstagramFilled, IconBrandTwitterFilled } from "@tabler/icons-react";
+import {
+  IconBrandFacebookFilled,
+  IconBrandInstagramFilled,
+  IconBrandTwitterFilled,
+} from "@tabler/icons-react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
-import { XIcon } from "lucide-react";
+import { SearchIcon, Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const searchInput = (
@@ -50,7 +47,7 @@ export const Navbar = () => {
   );
 
   return (
-    <HeroUINavbar maxWidth="xl" className="bg-transparent"  position="sticky">
+    <HeroUINavbar className="bg-transparent" maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -89,7 +86,11 @@ export const Navbar = () => {
             {/* <IconBrandFacebook className="text-default-500" /> */}
             <IconBrandFacebookFilled className="text-default-500" />
           </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.instagram}>
+          <Link
+            isExternal
+            aria-label="Github"
+            href={siteConfig.links.instagram}
+          >
             <IconBrandInstagramFilled className="text-default-500" />
           </Link>
           <ThemeSwitch />
@@ -101,7 +102,6 @@ export const Navbar = () => {
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
             href={siteConfig.links.sponsor}
-            
             variant="flat"
           >
             Become a Guide

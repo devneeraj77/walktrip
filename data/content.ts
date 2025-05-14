@@ -62,7 +62,7 @@ export const guides = [
 export const testimonials = [
   {
     id: "1",
-    name: "Sarah Johnson",
+    name: "Jake Johnson",
     location: "United States",
     comment:
       "An incredible experience! Our guide was knowledgeable and passionate about Delhi's history.",
@@ -86,5 +86,122 @@ export const testimonials = [
       "A perfect blend of history, culture, and local experiences. Highly recommended!",
     avatar: "https://i.pravatar.cc/150?u=7",
     rating: 5,
+  },
+  {
+    id: "4",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=19",
+    rating: 5,
+  },
+  {
+    id: "5",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=7",
+    rating: 5,
+  },
+  {
+    id: "6",
+    name: "Sam Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=52",
+    rating: 5,
+  },
+  {
+    id: "7",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=256",
+    rating: 1,
+  },
+  {
+    id: "8",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=47",
+    rating: 4,
+  },
+  {
+    id: "9",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=123",
+    rating: 4,
+  },
+  {
+    id: "10",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=12",
+    rating: 4,
+  },
+  {
+    id: "11",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=67",
+    rating: 4,
+  },
+  {
+    id: "12",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=454",
+    rating: 4,
+  },
+  {
+    id: "13",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=58",
+    rating: 4,
+  },
+  {
+    id: "14",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=63",
+    rating: 4,
+  },
+  {
+    id: "15",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=76",
+    rating: 4,
+  },
+  {
+    id: "16",
+    name: "Emma Wilson",
+    location: "Australia",
+    comment:
+      "A perfect blend of history, culture, and local experiences. Highly recommended!",
+    avatar: "https://i.pravatar.cc/150?u=45",
+    rating: 2,
   },
 ];

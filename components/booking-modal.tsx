@@ -55,7 +55,7 @@ export function BookingModal({
 
       addToast({
         color: "success",
-        title: "Booking Confirmed!",
+        title: "Booking Confirmed!", 
         description: `You have booked ${guide.name}`,
       });
 

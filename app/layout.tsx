@@ -42,10 +42,9 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-      
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen ">
-          {/* <Spotlight/> */}
+            {/* <Spotlight/> */}
             <Navbar />
             <main className="container mx-auto max-w-7xl  border-rose-300 px-6 flex-grow">
               {children}
@@ -63,7 +62,6 @@ export default function RootLayout({
             </footer>
           </div>
         </Providers>
-        {/* <Spotlight/> */}
       </body>
     </html>
   );

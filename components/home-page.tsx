@@ -1,6 +1,8 @@
 // components/home.tsx (Client Component)
 "use client";
 
+import ToursCard from "./tours";
+
 import { HeroSection } from "@/components/hero-section";
 import { GuideCard } from "@/components/guide-card";
 import { Guide } from "@/types";
@@ -13,7 +15,7 @@ export default function Home({ guides }: HomeProps) {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      {/* <Spotlight /> */}
+      <ToursCard />
       <section className="py-20 " id="guides">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">
@@ -25,7 +27,7 @@ export default function Home({ guides }: HomeProps) {
             ) : (
               <GuideCard
                 availability={{ Monday: false, Tuesday: false }}
-                avatar={"https://picsum.photos/800/600?random=1"}
+                avatar={"https://i.pravatar.cc/150?u=41"}
                 bio="A dedicated guide who will appear once data is available."
                 description="We couldn’t load the guides right now. Please check back later."
                 experience="5 years"
