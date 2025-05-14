@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import React from "react";
-
-import { tours } from "@/data/content";
 import { Card } from "@heroui/react";
 import { IconAlarmFilled } from "@tabler/icons-react";
+
+import { tours } from "@/data/content";
 
 type Tour = (typeof tours)[number];
 
@@ -28,10 +28,10 @@ const ToursCard = () => {
             <h2 className="text-xl font-semibold mb-2">{tour.title}</h2>
             <p className="text-gray-600 mb-2">{tour.description}</p>
             <div className="flex justify-between items-center text-sm text-gray-500 mt-4">
-             
-                
-                <span className="flex justify-center items-center"><IconAlarmFilled className=""/> {tour.duration}</span>
-              
+              <span className="flex justify-center items-center">
+                <IconAlarmFilled className="" /> {tour.duration}
+              </span>
+
               <span>₹ {tour.price}</span>
             </div>
           </div>

@@ -2,17 +2,14 @@ import { Link } from "@heroui/link";
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
+
 import HomePage from "./home-page";
+
 import { siteConfig } from "@/config/site";
 import { GithubIcon } from "@/components/icons";
-import { Guide } from "@/types";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 
-interface HomeProps {
-  guides: Guide[];
-}
-
-export default function Home({ guides }: HomeProps) {
+export default function Home() {
   return (
     <>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -38,8 +35,7 @@ export default function Home({ guides }: HomeProps) {
             </div>
           </div>
         </div> */}
-        <TestimonialCarousel/>
-
+        <TestimonialCarousel />
 
         <div className="flex gap-3">
           <Link
