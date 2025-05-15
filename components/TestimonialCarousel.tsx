@@ -11,7 +11,7 @@ import { testimonials } from "@/data/content";
 export const TestimonialCarousel = () => {
   return (
     <section className="py-16 bg-muted" id="testimonials">
-      <div className="w-full max-w-96  md:max-w-3xl lg:max-w-6xl mx-auto px-4">
+      <div className="w-full max-w-96 md:max-w-3xl lg:max-w-5xl mx-auto px-2">
         <h2 className="text-3xl font-bold mb-12 text-center">
           What Travelers Say
         </h2>
@@ -29,7 +29,7 @@ export const TestimonialCarousel = () => {
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="bg-white dark:bg-zinc-900 overflow-hidden rounded-2xl shadow-md p-6 h-full flex flex-col justify-between transition hover:shadow-lg">
+              <div className="bg-white border dark:bg-zinc-900 overflow-hidden rounded-2xl shadow-md p-6 h-full flex flex-col justify-between transition hover:shadow-lg">
                 <p className="text-muted-foreground italic mb-4 text-base">
                   “{testimonial.comment}”
                 </p>
