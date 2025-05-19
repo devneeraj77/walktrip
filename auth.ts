@@ -1,13 +1,15 @@
 // auth.ts
 import NextAuth from "next-auth";
-import credentials from "next-auth/providers/credentials";
+import Credentials from "next-auth/providers/credentials";
+import Google from "next-auth/providers/google";
 
 import redis from "./lib/redis";
 
 import { User } from "@/types";
-export const { auth, handlers } = NextAuth({
+export const { signIn, signOut, auth, handlers } = NextAuth({
   providers: [
-    credentials({
+    Google,
+    Credentials({
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email" },
@@ -57,8 +59,5 @@ export const { auth, handlers } = NextAuth({
 
       return session;
     },
-  },
-  pages: {
-    signIn: "/auth/login",
   },
 });

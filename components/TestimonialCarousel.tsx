@@ -29,7 +29,7 @@ export const TestimonialCarousel = () => {
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="bg-white border dark:bg-zinc-900 overflow-hidden rounded-2xl shadow-md p-6 h-full flex flex-col justify-between transition hover:shadow-lg">
+              <div className="bg-white dark:bg-zinc-900 overflow-hidden rounded-2xl shadow-md p-6 h-full flex flex-col justify-between transition hover:shadow-lg">
                 <p className="text-muted-foreground italic mb-4 text-base">
                   “{testimonial.comment}”
                 </p>

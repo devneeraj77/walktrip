@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import { ReactNode, SVGProps } from "react";
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
@@ -18,8 +18,9 @@ export interface Guide {
   id: string;
   title: string;
   description: string;
-  link: string;
+  username: string;
   name: string;
+  location: string;
   specialty: string;
   experience: string;
   avatar: string;
@@ -45,6 +46,7 @@ export interface Booking {
 }
 
 export interface Review {
+  reviewerName: ReactNode;
   id: string;
   guideId: string;
   userId: string;

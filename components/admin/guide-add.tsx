@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function GuideAddPage() {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    link: '',
-    name: '',
-    specialty: '',
+    title: "",
+    description: "",
+    link: "",
+    name: "",
+    specialty: "",
     experience: 0,
     avatar: null as File | null,
-    bio: '',
+    bio: "",
     languages: [] as string[],
     hourlyRate: 0,
     rating: 0,
@@ -22,16 +22,19 @@ export default function GuideAddPage() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value, type } = e.target;
 
-    if (name === 'languages') {
-      const selectedOptions = Array.from((e.target as HTMLSelectElement).selectedOptions).map(
-        (option) => option.value
-      );
+    if (name === "languages") {
+      const selectedOptions = Array.from(
+        (e.target as HTMLSelectElement).selectedOptions,
+      ).map((option) => option.value);
+
       setFormData((prev) => ({ ...prev, languages: selectedOptions }));
-    } else if (type === 'number') {
+    } else if (type === "number") {
       setFormData((prev) => ({ ...prev, [name]: Number(value) }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
@@ -47,7 +50,7 @@ export default function GuideAddPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    let avatarUrl = '';
+    let avatarUrl = "";
 
     if (formData.avatar) {
       // Replace with real upload logic
@@ -71,75 +74,78 @@ export default function GuideAddPage() {
       },
     };
 
-    const res = await fetch('/api/guides', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/guides", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(guide),
     });
 
     if (res.ok) {
-      router.push('/guides');
+      router.push("/guides");
     } else {
-      alert('Failed to create guide');
+      alert("Failed to create guide");
     }
   };
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold mb-6">Add New Guide</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
           <label className="block font-medium mb-1">Avatar Image</label>
-          <input type="file" accept="image/*" onChange={handleFileChange} />
+          <input accept="image/*" type="file" onChange={handleFileChange} />
           <p className="text-sm text-gray-500 mt-1">
             If not uploaded, a default avatar will be used.
           </p>
         </div>
 
         {[
-          { name: 'title', type: 'text' },
-          { name: 'description', type: 'textarea' },
-          { name: 'link', type: 'text' },
-          { name: 'name', type: 'text' },
-          { name: 'specialty', type: 'text' },
-          { name: 'experience', type: 'number' },
-          { name: 'bio', type: 'textarea' },
-          { name: 'hourlyRate', type: 'number' },
-          { name: 'rating', type: 'number' },
-          { name: 'reviewCount', type: 'number' },
+          { name: "title", type: "text" },
+          { name: "username", type: "text" },
+          { name: "description", type: "textarea" },
+          { name: "location", type: "text" },
+          { name: "name", type: "text" },
+          { name: "specialty", type: "text" },
+          { name: "experience", type: "number" },
+          { name: "bio", type: "textarea" },
+          { name: "hourlyRate", type: "number" },
+          { name: "rating", type: "number" },
+          { name: "reviewCount", type: "number" },
         ].map(({ name, type }) => (
           <div key={name}>
             <label className="block font-medium capitalize mb-1">{name}</label>
-            {type === 'textarea' ? (
+            {type === "textarea" ? (
               <textarea
+                className="w-full border px-3 py-2 rounded"
                 name={name}
                 value={formData[name as keyof typeof formData] as string}
                 onChange={handleChange}
-                className="w-full border px-3 py-2 rounded"
               />
             ) : (
               <input
-                type={type}
+                className="w-full border px-3 py-2 rounded"
                 name={name}
+                type={type}
                 value={formData[name as keyof typeof formData] as any}
                 onChange={handleChange}
-                className="w-full border px-3 py-2 rounded"
               />
             )}
           </div>
         ))}
-
         <div>
           <label className="block font-medium mb-1">Languages Known</label>
           <select
             multiple
+            className="w-full border px-3 py-2 rounded"
             name="languages"
             value={formData.languages}
             onChange={(e) => {
-              const selected = Array.from(e.target.selectedOptions).map((option) => option.value);
+              const selected = Array.from(e.target.selectedOptions).map(
+                (option) => option.value,
+              );
+
               setFormData((prev) => ({ ...prev, languages: selected }));
             }}
-            className="w-full border px-3 py-2 rounded"
           >
             {[
               "Afrikaans",
@@ -274,24 +280,26 @@ export default function GuideAddPage() {
               "Xhosa",
               "Yiddish",
               "Yoruba",
-              "Zulu"].map((lang) => (
-                <option key={lang} value={lang}>
-                  {lang}
-                </option>
-              ))}
+              "Zulu",
+            ].map((lang) => (
+              <option key={lang} value={lang}>
+                {lang}
+              </option>
+            ))}
           </select>
-          <p className="text-sm text-gray-500 mt-1">Hold Ctrl (or Cmd on Mac) to select multiple languages</p>
+          <p className="text-sm text-gray-500 mt-1">
+            Hold Ctrl (or Cmd on Mac) to select multiple languages
+          </p>
           {formData.languages.length > 0 && (
             <p className="text-sm text-gray-700 mt-1">
-              Selected: {formData.languages.join(', ')}
+              Selected: {formData.languages.join(", ")}
             </p>
           )}
         </div>
 
-
         <button
-          type="submit"
           className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+          type="submit"
         >
           Submit Guide
         </button>

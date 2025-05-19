@@ -29,12 +29,38 @@ export function BookingModal({
   const [duration, setDuration] = React.useState(2);
   const [loading, setLoading] = React.useState(false);
 
+  const validateForm = () => {
+    if (!date) {
+      addToast({
+        color: "warning",
+        title: "Validation Error",
+        description: "Please select a date for the booking.",
+      });
+
+      return false;
+    }
+
+    if (isNaN(duration) || duration < 1 || duration > 8) {
+      addToast({
+        color: "warning",
+        title: "Validation Error",
+        description: "Duration must be between 1 and 8 hours.",
+      });
+
+      return false;
+    }
+
+    return true;
+  };
+
   const handleBooking = async () => {
+    if (!validateForm()) return;
+
     try {
       setLoading(true);
       const booking = {
         guideId: guide.id,
-        userId: "user123",
+        userId: "user123", // This should be dynamic in real apps
         date,
         duration,
         totalPrice: guide.hourlyRate * duration,
@@ -59,7 +85,7 @@ export function BookingModal({
         description: `You have booked ${guide.name}`,
       });
 
-      onOpenChange();
+      onOpenChange(); // Close modal
     } catch (error) {
       if (process.env.NODE_ENV === "development") {
         console.error("Booking failed:", error);

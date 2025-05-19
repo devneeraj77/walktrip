@@ -3,14 +3,14 @@ import { NextResponse } from "next/server";
 import redis from "@/lib/redis";
 import { Guide } from "@/types";
 
-type Params = Promise<{ id: string }>;
+type Params = Promise<{ id: string, username: string }>;
 
-export async function GET(request: Request, segmentData: { params: Params }) {
+export async function GET(request: Request, segmentData: Promise<{ params: Params }>) {
   try {
-    const params = await segmentData.params;
+    const params = (await segmentData).params;
 
     const guides = await redis.get<Guide[]>("guides");
-    const guide = guides?.find((g) => g.id === params.id);
+    const guide = guides?.find(async (g) => g.username === (await params).username);
 
     if (!guide) {
       return NextResponse.json({ error: "Guide not found" }, { status: 404 });

@@ -34,7 +34,7 @@ export default function Home({ guides }: HomeProps) {
                 hourlyRate={0}
                 id="default"
                 languages={["English"]}
-                link="#"
+                location=""
                 name="John Doe"
                 rating={0}
                 reviewCount={0}

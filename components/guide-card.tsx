@@ -19,7 +19,9 @@ export function GuideCard({
   id,
   name,
   specialty,
+  location,
   experience,
+  username,
   avatar,
   bio,
   languages,
@@ -28,7 +30,6 @@ export function GuideCard({
   reviewCount = 0, // Default to 0 if no reviewCount is provided
   title,
   description,
-  link,
 }: Guide) {
   const [isBookingOpen, setIsBookingOpen] = React.useState(false);
 
@@ -41,9 +42,7 @@ export function GuideCard({
           <p className="text-default-600 text-small">{specialty}</p>
         </CardHeader>
         <CardBody>
-          <p className="text-default-600 mb-2">
-            {experience} years of experience
-          </p>
+          <p className="text-default-600 mb-2">{experience} works new field</p>
           <p className="text-default-600 mb-2">{bio}</p>
           <div className="flex flex-wrap gap-2 justify-center mb-2">
             {languages.map((lang) => (
@@ -73,7 +72,9 @@ export function GuideCard({
           id,
           name,
           specialty,
+          location,
           experience,
+          username,
           avatar,
           bio,
           languages,
@@ -83,7 +84,6 @@ export function GuideCard({
           reviewCount, // Pass the reviewCount
           title,
           description,
-          link,
         }}
         isOpen={isBookingOpen}
         onOpenChange={() => setIsBookingOpen(false)}

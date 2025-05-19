@@ -7,7 +7,6 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import { Button } from "@heroui/button";
 import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
 import { Input } from "@heroui/input";
@@ -19,6 +18,8 @@ import {
   IconBrandInstagramFilled,
   IconBrandTwitterFilled,
 } from "@tabler/icons-react";
+
+import UserButton from "./userButton";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -97,7 +98,7 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button
+          {/* <Button
             isExternal
             as={Link}
             className="text-sm font-normal text-default-600 bg-default-100"
@@ -105,7 +106,8 @@ export const Navbar = () => {
             variant="flat"
           >
             Become a Guide
-          </Button>
+          </Button> */}
+          <UserButton />
         </NavbarItem>
       </NavbarContent>
 
