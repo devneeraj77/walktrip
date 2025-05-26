@@ -4,9 +4,9 @@ import { Guide } from "@/types";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ username: string }> }
 ) {
-  const id = (await params).id;
+  const username = (await params).username;
 
   try {
     const guides = await redis.get<Guide[]>("guides");
@@ -14,7 +14,7 @@ export async function GET(
       return NextResponse.json({ error: "No guides found" }, { status: 404 });
     }
 
-    const guide = guides.find((g) => g.id === id);
+    const guide = guides.find((g) => g.username === username);
     if (!guide) {
       return NextResponse.json({ error: "Guide not found" }, { status: 404 });
     }
@@ -30,9 +30,9 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ username: string }> }
 ) {
-  const id = (await params).id;
+  const username = (await params).username;
 
   try {
     const guides = await redis.get<Guide[]>("guides");
@@ -40,7 +40,7 @@ export async function DELETE(
       return NextResponse.json({ error: "No guides found" }, { status: 404 });
     }
 
-    const updatedGuides = guides.filter((g) => g.id !== id);
+    const updatedGuides = guides.filter((g) => g.username !== username);
 
     await redis.set("guides", updatedGuides);
 

@@ -4,22 +4,22 @@ import { notFound } from "next/navigation";
 import { Guide } from "@/types";
 
 async function getGuide(username: string): Promise<Guide | null> {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/guides/${username}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/guides/username/${username}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) return null;
 
   return res.json();
 }
 
-type Params = Promise<{ username: string }>
+type Params = Promise<{ username: string }>;
 
-export default async function GuideProfilePage(props: {
-  params: Params
-
-}) {
-  const params = await props.params
+export default async function GuideProfilePage(props: { params: Params }) {
+  const params = await props.params;
   const guide = await getGuide(params.username);
 
   if (!guide) return notFound();
@@ -51,7 +51,8 @@ export default async function GuideProfilePage(props: {
         <strong>Hourly Rate:</strong> ${guide.hourlyRate}
       </p>
       <p>
-        <strong>Rating:</strong> {guide.rating} / 5 ({guide.reviewCount} reviews)
+        <strong>Rating:</strong> {guide.rating} / 5 ({guide.reviewCount}{" "}
+        reviews)
       </p>
     </div>
   );
