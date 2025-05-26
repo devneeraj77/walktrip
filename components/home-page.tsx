@@ -32,6 +32,7 @@ export default function Home({ guides }: HomeProps) {
                 description="We couldn’t load the guides right now. Please check back later."
                 experience="5 years"
                 hourlyRate={0}
+                username=""
                 id="default"
                 languages={["English"]}
                 location=""

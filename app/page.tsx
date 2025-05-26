@@ -11,7 +11,7 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import GuideReview from "@/components/GuideReview";
 import GuideWrite from "@/components/SpecificGuideWrite";
 
-export default function Home({ params }: { params: { id: string } }) {
+export default function Home() {
   return (
     <>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -42,8 +42,8 @@ export default function Home({ params }: { params: { id: string } }) {
         <div className="max-w-3xl mx-auto p-6">
           <h1 className="text-2xl font-bold mb-4">Guide Details</h1>
           {/* Other guide details here */}
-          <GuideWrite guideId={params.id} />
-          <GuideReview guideId={params.id} />
+          {/* <GuideWrite guideId={params.id} />
+          <GuideReview guideId={params.id} /> */}
         </div>
 
         <div className="flex gap-3">
