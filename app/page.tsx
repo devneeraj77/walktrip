@@ -8,8 +8,6 @@ import HomePage from "./home-page";
 import { siteConfig } from "@/config/site";
 import { GithubIcon } from "@/components/icons";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
-import GuideReview from "@/components/GuideReview";
-import GuideWrite from "@/components/SpecificGuideWrite";
 
 export default function Home() {
   return (
