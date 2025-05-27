@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: {
     serverActions: {
       allowedOrigins: [
-        "https://jsgdst-3000.csb.app/",
+        "https://64zt8p-3000.csb.app/",
         "*.local-origin.dev",
         "*.app.github.dev",
         "*.csb.app",
