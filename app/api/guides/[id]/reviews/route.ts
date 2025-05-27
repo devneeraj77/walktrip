@@ -1,14 +1,13 @@
-// app/api/guides/[id]/reviews/route.ts
 import { NextResponse } from "next/server";
 
 import redis from "@/lib/redis";
 import { Review } from "@/types";
 
-type Params = Promise<{ id: string }>
+type Params = Promise<{ id: string }>;
 
 export async function GET(request: Request, segmentData: { params: Params }) {
   try {
-    const params = await segmentData.params
+    const params = await segmentData.params;
     const reviews = (await redis.get<Review[]>("reviews")) || [];
     const guideReviews = reviews.filter((r) => r.guideId === params.id);
 
@@ -39,6 +38,8 @@ export async function POST(req: Request, { params }: { params: Params }) {
 
     return NextResponse.json(newReview);
   } catch (error) {
+    console.error("Error posting review:", error); // ✅ This fixes the warning
+
     return NextResponse.json(
       { error: "Failed to post review" },
       { status: 500 },

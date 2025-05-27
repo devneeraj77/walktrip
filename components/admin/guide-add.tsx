@@ -9,7 +9,6 @@ export default function GuideAddPage() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    link: "",
     name: "",
     specialty: "",
     experience: 0,
@@ -53,10 +52,8 @@ export default function GuideAddPage() {
     let avatarUrl = "";
 
     if (formData.avatar) {
-      // Replace with real upload logic
       avatarUrl = `/uploads/${formData.avatar.name}`;
     } else {
-      // Fallback to pravatar
       avatarUrl = `https://i.pravatar.cc/150?u=${formData.name || Math.random()}`;
     }
 
@@ -92,8 +89,16 @@ export default function GuideAddPage() {
       <h1 className="text-2xl font-semibold mb-6">Add New Guide</h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
-          <label className="block font-medium mb-1">Avatar Image</label>
-          <input accept="image/*" type="file" onChange={handleFileChange} />
+          <label className="block font-medium mb-1" htmlFor="avatar">
+            Avatar Image
+          </label>
+          <input
+            accept="image/*"
+            id="avatar"
+            name="avatar"
+            type="file"
+            onChange={handleFileChange}
+          />
           <p className="text-sm text-gray-500 mt-1">
             If not uploaded, a default avatar will be used.
           </p>
@@ -113,10 +118,13 @@ export default function GuideAddPage() {
           { name: "reviewCount", type: "number" },
         ].map(({ name, type }) => (
           <div key={name}>
-            <label className="block font-medium capitalize mb-1">{name}</label>
+            <label className="block font-medium capitalize mb-1" htmlFor={name}>
+              {name}
+            </label>
             {type === "textarea" ? (
               <textarea
                 className="w-full border px-3 py-2 rounded"
+                id={name}
                 name={name}
                 value={formData[name as keyof typeof formData] as string}
                 onChange={handleChange}
@@ -124,6 +132,7 @@ export default function GuideAddPage() {
             ) : (
               <input
                 className="w-full border px-3 py-2 rounded"
+                id={name}
                 name={name}
                 type={type}
                 value={formData[name as keyof typeof formData] as any}
@@ -132,11 +141,15 @@ export default function GuideAddPage() {
             )}
           </div>
         ))}
+
         <div>
-          <label className="block font-medium mb-1">Languages Known</label>
+          <label className="block font-medium mb-1" htmlFor="languages">
+            Languages Known
+          </label>
           <select
             multiple
             className="w-full border px-3 py-2 rounded"
+            id="languages"
             name="languages"
             value={formData.languages}
             onChange={(e) => {

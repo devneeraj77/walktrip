@@ -40,9 +40,12 @@ export default function SpecificGuideWrite({ guideId }: { guideId: string }) {
       {session ? (
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block font-medium">Rating</label>
+            <label className="block font-medium" htmlFor="rating">
+              Rating
+            </label>
             <input
               className="w-full border px-3 py-2 rounded"
+              id="rating"
               max={5}
               min={1}
               type="number"
@@ -53,10 +56,13 @@ export default function SpecificGuideWrite({ guideId }: { guideId: string }) {
             />
           </div>
           <div>
-            <label className="block font-medium">Comment</label>
+            <label className="block font-medium" htmlFor="comment">
+              Comment
+            </label>
             <textarea
               required
               className="w-full border px-3 py-2 rounded"
+              id="comment"
               value={form.comment}
               onChange={(e) => setForm({ ...form, comment: e.target.value })}
             />

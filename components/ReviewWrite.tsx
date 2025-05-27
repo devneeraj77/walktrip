@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 interface ReviewWriteProps {
   guideId: string;
@@ -9,19 +9,21 @@ interface ReviewWriteProps {
 
 export default function ReviewWrite({ guideId, userId }: ReviewWriteProps) {
   const [rating, setRating] = useState(5);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async () => {
     if (!userId) {
-      setError('You must be logged in to submit a review.');
+      setError("You must be logged in to submit a review.");
+
       return;
     }
 
     if (!comment.trim()) {
-      setError('Please write a comment.');
+      setError("Please write a comment.");
+
       return;
     }
 
@@ -30,9 +32,9 @@ export default function ReviewWrite({ guideId, userId }: ReviewWriteProps) {
       setError(null);
 
       const res = await fetch(`/api/guides/${guideId}/reviews`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userId,
@@ -42,15 +44,15 @@ export default function ReviewWrite({ guideId, userId }: ReviewWriteProps) {
       });
 
       if (!res.ok) {
-        throw new Error('Failed to submit review');
+        throw new Error("Failed to submit review");
       }
 
       setSubmitted(true);
-      setComment('');
+      setComment("");
       setRating(5);
     } catch (err) {
       console.error(err);
-      setError('Something went wrong while submitting the review.');
+      setError("Something went wrong while submitting the review.");
     } finally {
       setLoading(false);
     }
@@ -71,37 +73,43 @@ export default function ReviewWrite({ guideId, userId }: ReviewWriteProps) {
       {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
       <div className="mb-2">
-        <label className="block text-sm font-medium">Rating</label>
+        <label className="block text-sm font-medium" htmlFor="rating">
+          Rating
+        </label>
         <select
           className="mt-1 p-2 border rounded w-full"
+          id="rating"
           value={rating}
           onChange={(e) => setRating(Number(e.target.value))}
         >
           {[5, 4, 3, 2, 1].map((r) => (
             <option key={r} value={r}>
-              {r} Star{r !== 1 && 's'}
+              {r} Star{r !== 1 && "s"}
             </option>
           ))}
         </select>
       </div>
 
       <div className="mb-2">
-        <label className="block text-sm font-medium">Comment</label>
+        <label className="block text-sm font-medium" htmlFor="comment">
+          Comment
+        </label>
         <textarea
           className="mt-1 p-2 border rounded w-full"
+          id="comment"
+          placeholder="Write your experience with this guide..."
           rows={4}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Write your experience with this guide..."
         />
       </div>
 
       <button
         className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
-        onClick={handleSubmit}
         disabled={loading}
+        onClick={handleSubmit}
       >
-        {loading ? 'Submitting...' : 'Submit Review'}
+        {loading ? "Submitting..." : "Submit Review"}
       </button>
     </div>
   );

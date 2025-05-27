@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   experimental: {
     serverActions: {
       allowedOrigins: [
-        "https://7yjd99-3000.csb.app",
+        "https://jsgdst-3000.csb.app/",
         "*.local-origin.dev",
         "*.app.github.dev",
         "*.csb.app",

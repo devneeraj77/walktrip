@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { Guide } from "@/types";
 
@@ -30,10 +31,12 @@ export default function GuidesPage() {
             href={`/guides/${guide.username}`}
           >
             <div className="flex items-center gap-4">
-              <img
+              <Image
                 alt={guide.name}
                 className="w-16 h-16 rounded-full object-cover"
+                height={200}
                 src={guide.avatar}
+                width={200}
               />
               <div>
                 <h2 className="font-semibold text-lg">{guide.name}</h2>

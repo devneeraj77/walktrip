@@ -1,13 +1,15 @@
 // app/guides/[username]/page.tsx
-import { Guide } from "@/types";
+
 import Image from "next/image";
+
+import { Guide } from "@/types";
 
 async function getGuide(username: string): Promise<Guide | null> {
   const res = await fetch(
     `${process.env.NEXTAUTH_URL}/api/guides/username/${username}`,
     {
       cache: "no-store",
-    }
+    },
   );
 
   if (!res.ok) return null;
@@ -29,9 +31,9 @@ export default async function GuideProfilePage(props: { params: Params }) {
         <Image
           alt={guide.name}
           className="w-24 h-24 rounded-full object-cover"
+          height={200}
           src={guide.avatar}
           width={200}
-          height={200}
         />
         <div>
           <h1 className="text-3xl font-bold">{guide.name}</h1>

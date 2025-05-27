@@ -1,41 +1,47 @@
 import { NextRequest, NextResponse } from "next/server";
+
 import redis from "@/lib/redis";
 import { Guide } from "@/types";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ username: string }> }
+  { params }: { params: Promise<{ username: string }> },
 ) {
   const username = (await params).username;
 
   try {
     const guides = await redis.get<Guide[]>("guides");
+
     if (!guides) {
       return NextResponse.json({ error: "No guides found" }, { status: 404 });
     }
 
     const guide = guides.find((g) => g.username === username);
+
     if (!guide) {
       return NextResponse.json({ error: "Guide not found" }, { status: 404 });
     }
 
     return NextResponse.json(guide);
   } catch (error) {
+    console.error("GET /api/guides/username error:", error);
+
     return NextResponse.json(
       { error: "Failed to fetch guide" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ username: string }> }
+  { params }: { params: Promise<{ username: string }> },
 ) {
   const username = (await params).username;
 
   try {
     const guides = await redis.get<Guide[]>("guides");
+
     if (!guides) {
       return NextResponse.json({ error: "No guides found" }, { status: 404 });
     }
@@ -46,9 +52,11 @@ export async function DELETE(
 
     return NextResponse.json({ message: "Guide deleted successfully" });
   } catch (error) {
+    console.error("DELETE /api/guides/username error:", error);
+
     return NextResponse.json(
       { error: "Failed to delete guide" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
