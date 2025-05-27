@@ -1,15 +1,16 @@
 // app/guides/[username]/page.tsx
 
 import Image from "next/image";
-
 import { Guide } from "@/types";
+
+export const dynamic = "force-dynamic"; // Needed for dynamic fetch
 
 async function getGuide(username: string): Promise<Guide | null> {
   const res = await fetch(
     `${process.env.NEXTAUTH_URL}/api/guides/username/${username}`,
     {
       cache: "no-store",
-    },
+    }
   );
 
   if (!res.ok) return null;
