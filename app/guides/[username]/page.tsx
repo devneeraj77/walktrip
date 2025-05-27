@@ -1,5 +1,5 @@
 // app/guides/[username]/page.tsx
-
+"use server";
 import Image from "next/image";
 import { Guide } from "@/types";
 
