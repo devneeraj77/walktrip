@@ -29,6 +29,12 @@ export function BookingModal({
   const [duration, setDuration] = React.useState(2);
   const [loading, setLoading] = React.useState(false);
 
+
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minDate = tomorrow.toISOString().split("T")[0];
+
   const validateForm = () => {
     if (!date) {
       addToast({
@@ -114,6 +120,7 @@ export function BookingModal({
                 type="date"
                 value={date}
                 onValueChange={setDate}
+                min={minDate}
               />
               <Input
                 label="Duration (hours)"
